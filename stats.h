@@ -79,7 +79,7 @@ unsigned char find_median (unsigned char* data, unsigned int length);
  * @return mean value of the array
  */
 
-unsigned char find_mean (unsigned char* data, unsigned int length);
+float find_mean (unsigned char* data, unsigned int length);
 
 
 

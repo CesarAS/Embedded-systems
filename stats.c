@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c 
+ * @brief Code for array statistics calculation
  *
- * <Add Extended Description Here>
+ * This implements 7 functions to do several statistic calculations and print the results
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Cesar Alfaro
+ * @date 20/04/2018
  *
  */
 
@@ -56,15 +56,33 @@ unsigned char find_median (unsigned char* data, unsigned int length){
 }
 
 unsigned char find_mean (unsigned char* data, unsigned int length){
-
+		unsigned char i, sum = 0;
+	float mean;
+	for (i=0;i<length;i++){
+		sum = sum + data[i];
+	}
+	mean = sum/length
+	return mean;
 }
 
 unsigned char find_maximum (unsigned char* data, unsigned int length){
-
+	unsigned char i, max;
+	max = data[0];
+	for (i=0;i<length;i++){
+		if (data[i]>max)
+			max = data[i];
+	}
+	return max;
 }
 
 unsigned char find_minimum (unsigned char* data, unsigned int length){
-
+	unsigned char i, min;
+	min = data[0];
+	for (i=0;i<length;i++){
+		if (data[i]<min)
+			min = data[i];
+	}
+	return min;
 }
 
 void sort_array (unsigned char* data, unsigned int length){
