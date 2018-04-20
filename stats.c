@@ -43,25 +43,31 @@ void main() {
 /* Add other Implementation File Code Here */
 
 void print_statistics (unsigned char* data, unsigned int length){
-
+	printf("Minimum value = %d", find_minimum(data,length));
+	printf("Maximum value = %d", find_maximum(data,length));
+	printf("Mean value = %d", find_mean(data,length));
+	printf("Median value = %d", find_median(data,length));
 }
 
 
 void print_array (unsigned char* data, unsigned int length){
-
+	unsigned char i;
+	for (i=0;i<length;i++){
+		printf ("Array[%d] = %d\n", i, data[i]);
+	}
 }
 
 unsigned char find_median (unsigned char* data, unsigned int length){
 
 }
 
-unsigned char find_mean (unsigned char* data, unsigned int length){
-		unsigned char i, sum = 0;
+float find_mean (unsigned char* data, unsigned int length){
+	unsigned char i, sum = 0;
 	float mean;
 	for (i=0;i<length;i++){
 		sum = sum + data[i];
 	}
-	mean = sum/length
+	mean = sum/length;
 	return mean;
 }
 
@@ -86,5 +92,16 @@ unsigned char find_minimum (unsigned char* data, unsigned int length){
 }
 
 void sort_array (unsigned char* data, unsigned int length){
-	
-}
+	unsigned char i, j, new_index, equal; 
+	unsigned char sorted_array[length];
+	for (i=0;i<length;i++){
+		new_index = 0;
+		equal = 0;
+		for (j=0;j<length;j++){
+			if(data[i]<data[j])
+				new_index++;
+			else if (data[i] == data[j])
+				equal++;
+		}
+		sorted_array[new_index] = data[i];
+	}
