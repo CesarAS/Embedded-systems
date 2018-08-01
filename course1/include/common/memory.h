@@ -90,4 +90,102 @@ void set_all(char * ptr, char value, unsigned int size);
  */
 void clear_all(char * ptr, unsigned int size);
 
+/**
+ * @brief Moves memory contents
+ *
+ * Given a source pointer and a destination pointer, moves a number
+ * of elements given between them
+ *
+ * @param src Source pointer to move
+ * @param dst Destination pointer to move
+ * @param length Number of elements to move
+ *
+ * @return pointer to destionation.
+ */
+
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Copy memory contents
+ *
+ * Given a source pointer and a destination pointer, copies a number
+ * of elements given between them
+ *
+ * @param src Source pointer to copy
+ * @param dst Destination pointer to copy
+ * @param length Number of elements to copy
+ *
+ * @return pointer to destionation.
+ */
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Sets memory position
+ *
+ * Given a source pointer sets to a given value a number
+ * of elements given
+ *
+ * @param src Source pointer to set values
+ * @param length Number of memory positions to set
+ * @param value Content to be set
+ *
+ * @return pointer to source.
+ */
+
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
+
+/**
+ * @brief Sets memory position to zero
+ *
+ * Given a source pointer sets to zero a number
+ * of elements given
+ *
+ * @param src Source pointer to set values
+ * @param length Number of memory positions to set
+ *
+ * @return pointer to source.
+ */
+
+uint8_t * my_memzero(uint8_t * src, size_t length);
+
+/**
+ * @brief Reverses bytes order in memory
+ *
+ * Given a source pointer reverses the order of
+ * a number of given elements
+ *
+ * @param src Source pointer to set values
+ * @param length Number of memory positions to set
+ *
+ * @return pointer to source.
+ */
+
+uint8_t * my_reverse(uint8_t * src, size_t length);
+
+/**
+ * @brief Allocates words in dynamic memory
+ *
+ * Given a number of words, allocates
+ * them in dynamic memory
+ *
+ * @param length Number of memory words to reserve
+ *
+ * @return pointer to memory if succeded and NULL pointer if fails.
+ */
+
+int32_t * reserve_words(size_t length);
+
+/**
+ * @brief Frees a dynamic memory allocation
+ *
+ * Given a  source pointer, frees a dynamic memory allocation
+ *
+ * @param src pointer to be free
+ *
+ * @return void
+ */
+
+void free_words(int32_t * src);
+
 #endif /* __MEMORY_H__ */
