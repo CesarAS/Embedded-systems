@@ -15,6 +15,10 @@
 #ifndef __DATA_H__
 #define __DATA_H__
 
+#include <stdint.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
 /**
  * @brief Makes integer to ASCII conversion
  *

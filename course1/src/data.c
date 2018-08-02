@@ -8,12 +8,15 @@
  *
  */
 
+#include "data.h"
+#include "memory.h"
+
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
     uint32_t digit, i = 0;
     uint32_t original = data;
     
-//Start writing the NULL at the end
-    *ptr = NULL;
+//Start writing the NULL (0 in ASCII table) at the end
+    *ptr = 0;
     ptr++;
     i++;
 
