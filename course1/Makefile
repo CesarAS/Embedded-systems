@@ -40,7 +40,7 @@ ifeq ($(PLATFORM),HOST)
 	LD = ld
 	ARCH := $(shell arch)
 	SIZE = size
-	PLATFORM_FLAGS = 
+	PLATFORM_FLAGS = -DCOURSE1
 else
 	CC = arm-none-eabi-gcc
 	LD = arm-none-eabi-ld
@@ -49,13 +49,13 @@ else
 	ARCH = armv7e-m
 	SPECS = nosys.specs
 	SIZE = arm-none-eabi-size
-	PLATFORM_FLAGS = -mcpu=cortex-m4 -mthumb -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs
+	PLATFORM_FLAGS = -mcpu=cortex-m4 -mthumb -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -DCOURSE1
 endif
 
  
 # Compiler Flags and Defines
 
-CFLAGS = -Wall -Werror -g -O0 -std=c99 $(INCLUDES) -D $(PLATFORM) $(PLATFORM_FLAGS)
+CFLAGS = -Wall -Werror -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM) $(PLATFORM_FLAGS)
 CPPFLAGS = -MD
 LDFLAGS = $(LINKER_FILE) -Xlinker -Map=$(TARGET).map
 OBJS = $(SOURCES:.c=.o)

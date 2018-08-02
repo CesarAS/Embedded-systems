@@ -24,8 +24,13 @@
 
 //#include "platform.h"
 //#include "memory.h"
+#include "course1.h"
 
-#ifdef COURSE1
-  course1();
-#endif
+int main () {
+	#ifdef COURSE1
+  	course1();
+  	return 1;
+	#endif
+	return 0;
+}
 

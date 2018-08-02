@@ -33,7 +33,7 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
     } while (data>0);
 
 // This will add the sign if needed
-    if (data<0) {   
+    if (original<0) {   
         *ptr = 45;
         ptr++;
         i++;
@@ -49,16 +49,16 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
 int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
     bool negative = false;
     int32_t result = 0;
-    if (*ptr = '-') {
+    if (*ptr == '-') {
         negative = true;
         ptr++;
         digits--;
     }
     while (digits--) {
         if (*ptr >= '0' && *ptr <= '9')
-            result += (*ptr - '0') * pow(base, digits-1);
+            result += (*ptr - '0') /** pow(base, digits-1)*/;
         else
-            result += (*ptr - 55) * pow(base, digits-1);
+            result += (*ptr - 55) /** pow(base, digits-1)*/;
     }
     if (negative)
         result = -result;

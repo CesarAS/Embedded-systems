@@ -18,8 +18,8 @@ ifeq ($(PLATFORM),HOST)
 		src/course1.c \
 		src/stats.c
 		
-	INCLUDES = -I /include/CMSIS/ \
-		-I /include/common/
+	INCLUDES = -I include/CMSIS/ \
+		-I include/common/
 else
 	SOURCES = src/main.c \
 		src/memory.c \
@@ -31,9 +31,9 @@ else
 		src/system_msp432p401r.c
 
 	#	Add your include paths to this variable
-	INCLUDES = -I /include/CMSIS/ \
-		-I /include/common/ \
-		-I /include/msp432/
+	INCLUDES = -I include/CMSIS/ \
+		-I include/common/ \
+		-I include/msp432/
 endif
 
  
