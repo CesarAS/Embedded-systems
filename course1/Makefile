@@ -33,6 +33,7 @@ include sources.mk
 # Platform Overrides
 TARGET = c1m2
 PLATFORM = HOST
+PROGRAM = COURSE1
 
 # Architectures Specific Flags
 ifeq ($(PLATFORM),HOST)
@@ -40,7 +41,7 @@ ifeq ($(PLATFORM),HOST)
 	LD = ld
 	ARCH := $(shell arch)
 	SIZE = size
-	PLATFORM_FLAGS = -DCOURSE1
+	PLATFORM_FLAGS = 
 else
 	CC = arm-none-eabi-gcc
 	LD = arm-none-eabi-ld
@@ -49,13 +50,13 @@ else
 	ARCH = armv7e-m
 	SPECS = nosys.specs
 	SIZE = arm-none-eabi-size
-	PLATFORM_FLAGS = -mcpu=cortex-m4 -mthumb -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs -DCOURSE1
+	PLATFORM_FLAGS = -mcpu=cortex-m4 -mthumb -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nosys.specs
 endif
 
  
 # Compiler Flags and Defines
 
-CFLAGS = -Wall -Werror -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM) $(PLATFORM_FLAGS)
+CFLAGS = -Wall -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM) $(PLATFORM_FLAGS) -D$(PROGRAM) -DVERBOSE
 CPPFLAGS = -MD
 LDFLAGS = $(LINKER_FILE) -Xlinker -Map=$(TARGET).map
 OBJS = $(SOURCES:.c=.o)

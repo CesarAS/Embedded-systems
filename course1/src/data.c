@@ -13,7 +13,8 @@
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
     uint32_t digit, i = 0;
-    uint32_t original = data;
+    uint32_t original_data = data;
+    //uint8_t *original_ptr = ptr;
     
 //Start writing the NULL (0 in ASCII table) at the end
     *ptr = 0;
@@ -33,8 +34,8 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
     } while (data>0);
 
 // This will add the sign if needed
-    if (original<0) {   
-        *ptr = 45;
+    if (original_data<0) {   
+        *ptr = '-';
         ptr++;
         i++;
     }
@@ -54,13 +55,30 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
         ptr++;
         digits--;
     }
-    while (digits--) {
+
+    result = (*ptr-'0') * (base^digits);
+    
+   /* do{
         if (*ptr >= '0' && *ptr <= '9')
-            result += (*ptr - '0') /** pow(base, digits-1)*/;
+            result += 2^2/*(*ptr - '0') /* base^(digits-2);
         else
-            result += (*ptr - 55) /** pow(base, digits-1)*/;
-    }
+            result += (*ptr - 55)  base^(digits-2);
+        ptr++;
+        digits--;
+    } while (digits>1);*/
+
     if (negative)
         result = -result;
+    
     return result;
+}
+
+int32_t power (int32_t base, uint32_t exp){
+    int32_t pow = 0;
+    
+    while (exp>1){
+        pow += base * base;
+        exp--;
+    }
+    return pow;
 }

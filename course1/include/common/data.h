@@ -18,7 +18,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <math.h>
+//#include <math.h>
 /**
  * @brief Makes integer to ASCII conversion
  *
