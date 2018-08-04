@@ -9,6 +9,11 @@
 #
 #*****************************************************************************
 
+# Platform Overrides
+TARGET = course1
+PLATFORM = HOST
+COURSE = COURSE1
+
 # Add your Source files to this variable
 
 ifeq ($(PLATFORM),HOST)

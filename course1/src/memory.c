@@ -49,14 +49,11 @@ void clear_all(char * ptr, unsigned int size){
 }
 
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
-	uint8_t i;
-	if ((src + length) > dst){
-		for (i=0;i<length;i++){
-			*(dst + i + length) = *(src + i);
+	int8_t i;
+	if (src < dst){
+		for (i=(length-1);i>=0;i--){
+			*(dst + i) = *(src + i);
 		}	
-		for (i=0;i<length;i++){
-			*(dst + i) = *(dst + i + length);
-		}
 	}	
 	else { 
 		for (i=0;i<length;i++){

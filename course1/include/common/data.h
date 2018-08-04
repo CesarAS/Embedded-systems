@@ -49,5 +49,19 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base);
 
 int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base);
 
+/**
+ * @brief Makes one number to the power of other
+ *
+ * Given a base and an exponent performs base to the
+ * power of the exponent
+ *
+ * @param base Number which is multiplied
+ * @param exp Number of times to multiply. Only for positive exp
+ *
+ * @return base^exp.
+ */
+
+int32_t power (int32_t base, uint32_t exp);
+
 
 #endif /* __DATA_H__ */

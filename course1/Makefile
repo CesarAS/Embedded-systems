@@ -30,11 +30,6 @@
 include sources.mk
 
 
-# Platform Overrides
-TARGET = c1m2
-PLATFORM = HOST
-PROGRAM = COURSE1
-
 # Architectures Specific Flags
 ifeq ($(PLATFORM),HOST)
 	CC = gcc
@@ -56,7 +51,7 @@ endif
  
 # Compiler Flags and Defines
 
-CFLAGS = -Wall -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM) $(PLATFORM_FLAGS) -D$(PROGRAM) -DVERBOSE
+CFLAGS = -Wall -g -O0 -std=c99 $(INCLUDES) -D$(PLATFORM) $(PLATFORM_FLAGS) -D$(COURSE) -DVERBOSE 
 CPPFLAGS = -MD
 LDFLAGS = $(LINKER_FILE) -Xlinker -Map=$(TARGET).map
 OBJS = $(SOURCES:.c=.o)

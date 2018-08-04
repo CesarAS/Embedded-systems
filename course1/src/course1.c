@@ -66,13 +66,8 @@ int8_t test_data2() {
   {
     return TEST_ERROR;
   }
-  PRINTF("  Return: %d\n", ptr);
+
   digits = my_itoa( num, ptr, BASE_10);
-  PRINTF("  Return: %d\n", digits);
-  PRINTF("  Return: %d\n", ptr);
-  PRINTF("  Return: %d\n", *ptr);
-  PRINTF("  Return: %d\n", *(ptr+1));
-  PRINTF("  Return: %d\n", *(ptr+2));
   value = my_atoi( ptr, digits, BASE_10);
   #ifdef VERBOSE
   PRINTF("  Initial Decimal number: %d\n", num);

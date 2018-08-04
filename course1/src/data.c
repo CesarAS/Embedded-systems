@@ -55,17 +55,15 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
         ptr++;
         digits--;
     }
-
-    result = (*ptr-'0') * (base^digits);
     
-   /* do{
+    do{
         if (*ptr >= '0' && *ptr <= '9')
-            result += 2^2/*(*ptr - '0') /* base^(digits-2);
+            result += (*ptr - '0') * power(base,digits-2);
         else
-            result += (*ptr - 55)  base^(digits-2);
+            result += (*ptr - 55) * power(base,digits-2);
         ptr++;
         digits--;
-    } while (digits>1);*/
+    } while (digits>1);
 
     if (negative)
         result = -result;
@@ -74,11 +72,14 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
 }
 
 int32_t power (int32_t base, uint32_t exp){
-    int32_t pow = 0;
-    
-    while (exp>1){
-        pow += base * base;
-        exp--;
+    int32_t pow = base;
+    if (exp == 0)
+        return 1;
+    else {
+        while (exp>1){
+            pow *= base;
+            exp--;
+        }
+        return pow;
     }
-    return pow;
 }
